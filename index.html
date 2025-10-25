@@ -30,7 +30,7 @@
             white-space: pre-wrap;
         }
 
-        /* Timeline Custom Styles */
+        /* Timeline Custom Styles - FIXED */
         .timeline {
             position: relative;
             padding: 0;
@@ -50,20 +50,27 @@
             position: relative;
             margin-bottom: 20px;
         }
-        .timeline-item:nth-child(even) .timeline-content {
-            left: 50%;
-            padding-left: 30px;
-        }
-        .timeline-item:nth-child(odd) .timeline-content {
-            right: 50%;
-            padding-right: 30px;
-            text-align: right;
-        }
+        
+        /* General content box properties (50% width for all) */
         .timeline-item .timeline-content {
             width: 50%;
-            float: left;
             position: relative;
         }
+
+        /* Odd items (Left side of the line) */
+        .timeline-item:nth-child(odd) .timeline-content {
+            float: left; 
+            padding-right: 30px;
+            text-align: right; /* Text aligns away from the center line */
+        }
+
+        /* Even items (Right side of the line) */
+        .timeline-item:nth-child(even) .timeline-content {
+            float: right; /* Positions the box to the right */
+            padding-left: 30px;
+            text-align: left; /* Text aligns away from the center line */
+        }
+        
         .timeline-item .timeline-point {
             position: absolute;
             top: 6px;
@@ -249,8 +256,4 @@
                         <div class="timeline-content bg-gray-700 rounded-xl shadow-2xl overflow-hidden p-6 hover:scale-[1.01] transition duration-500 border border-gray-700 hover:border-cyan-500">
                             <h3 class="text-xl font-bold text-cyan-400 mb-1">Volunteer Administrator</h3>
                             <p class="text-lg font-semibold text-gray-200 mb-2">Duduza Primary School</p>
-                            <p class="text-sm text-gray-400 mb-4">September 2023</p>
-                            
-                            <div class="details-content" id="exp2-details">
-                                <ul class="list-disc pl-5 space-y-2 text-gray-300 text-sm">
-                                    <li>Handled general administration, including record keeping, compiling leave forms, 
+                            <p class="text-sm text-gray-400 mb-4">September 2
