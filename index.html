@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siyabonga Mdhluli | IT & Public Administration Professional</title>
-    <!-- CRUCIAL FOR SEO: Added a descriptive meta tag for search engines -->
     <meta name="description" content="Organized IT & Public Administration professional skilled in Computer Lab Facilitation, technical support, financial record-keeping, and SA-SAMS data capturing.">
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght%40100..900&display=swap" rel="stylesheet">
     <style>
         /* Custom styles and font application */
@@ -32,23 +29,91 @@
         .whitespace-pre-wrap {
             white-space: pre-wrap;
         }
+
+        /* Timeline Custom Styles */
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            margin-left: -1px;
+            background-color: #374151; /* gray-700 for the line */
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            left: 50%;
+            padding-left: 30px;
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            right: 50%;
+            padding-right: 30px;
+            text-align: right;
+        }
+        .timeline-item .timeline-content {
+            width: 50%;
+            float: left;
+            position: relative;
+        }
+        .timeline-item .timeline-point {
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            margin-left: -7px;
+            background-color: #06b6d4; /* Cyan */
+            border: 2px solid #1f2937; /* gray-800 */
+            border-radius: 50%;
+            z-index: 10;
+        }
+        /* Clearfix for timeline items */
+        .timeline-item:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* Style adjustments for responsiveness */
+        @media (max-width: 768px) {
+            .timeline:before {
+                left: 10px;
+            }
+            .timeline-item .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-content {
+                width: 100%;
+                float: none;
+                padding-left: 40px;
+                padding-right: 0;
+                text-align: left;
+            }
+            .timeline-item .timeline-point {
+                left: 10px;
+                margin-left: -7px;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100 antialiased">
 
-    <!-- Navigation Bar -->
     <header class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm shadow-xl">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <a href="#hero" class="text-2xl font-extrabold text-cyan-400 tracking-wider">SM.</a>
             <div class="space-x-4 hidden sm:flex">
                 <a href="#about" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">About</a>
                 <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">Skills</a>
-                <!-- Added link for the new LLM feature -->
-                <a href="#tailor" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">Tailor 💫</a> 
                 <a href="#experience" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">Experience</a>
                 <a href="#contact" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">Contact</a>
             </div>
-            <!-- Simple Mobile Menu Placeholder/Icon (not functional for brevity, but styled) -->
             <button class="sm:hidden p-2 text-gray-300 hover:text-cyan-400 rounded-lg transition duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
             </button>
@@ -56,562 +121,14 @@
     </header>
 
     <main>
-        <!-- 1. Hero Section -->
-        <section id="hero" class="py-20 sm:py-32 md:py-40 text-center bg-gray-950">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+        <section id="hero" class="py-20 sm:py-32 md:py-40 bg-gray-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
                 
-                <!-- Profile Image & Upload Area -->
-                <div class="relative w-32 h-32 mb-6">
+                <div class="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
                     <div class="w-full h-full rounded-full overflow-hidden border-4 border-cyan-500 shadow-xl">
-                        <!-- Corrected image source to a safe placeholder/fallback -->
                         <img id="profileImage" src="profileImage.jpg" alt="Siyabonga Mdhluli Profile" class="w-full h-full object-cover">
                     </div>
 
-                    <!-- Image Upload Button (Only visible when authenticated) -->
                     <label for="imageUpload" id="uploadLabel" class="hidden absolute bottom-0 right-0 p-2 bg-cyan-600 rounded-full cursor-pointer hover:bg-cyan-500 transition duration-300" title="Change Profile Picture">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera text-white">
-                            <path d="M6 9a4 4 0 1 1 8 0 4 4 0 0 1-8 0z"/><path d="M12 21v-2c-2.31 0-3.86-.46-5-1.5-.72-.61-1.3-1.42-1.74-2.5C4.24 14.51 4 13.06 4 12c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.06-.24 2.51-.56 3.59-.44 1.08-1.02 1.89-1.74 2.5-1.14 1.04-2.69 1.5-5 1.5v2"/></svg>
-                        <input type="file" id="imageUpload" accept="image/*" class="hidden" onchange="uploadProfilePicture(event)">
-                    </label>
-                </div>
-
-                <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4">
-                    Hi, I'm <span class="text-cyan-400">Siyabonga Mdhluli</span>
-                </h1>
-                <p class="text-xl sm:text-2xl text-gray-400 max-w-3xl mb-8">
-                    An organized professional skilled in **Computer Lab Facilitation, Basic IT Troubleshooting, and Public Administration**.
-                </p>
-
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="#experience" class="inline-block px-8 py-3 bg-cyan-500 text-gray-900 font-bold rounded-full shadow-lg hover:bg-cyan-400 transition duration-300 transform hover:scale-105">
-                        View Experience
-                    </a>
-                    <a href="#contact" class="inline-block px-8 py-3 border-2 border-gray-600 text-gray-300 font-bold rounded-full shadow-lg hover:border-cyan-500 hover:text-cyan-400 transition duration-300 transform hover:scale-105">
-                        Get In Touch
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. About Me Section -->
-        <section id="about" class="py-16 sm:py-24 bg-gray-800">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 border-b-4 border-cyan-500/50 pb-2 inline-block mx-auto">About Me</h2>
-
-                <div class="bg-gray-700 p-8 rounded-xl shadow-2xl space-y-6 text-lg text-gray-300">
-                    <p>
-                        I am a diligent and detail-oriented professional with a strong background in **Public Management (NQF Level 5)** and practical experience in educational and administrative environments.
-                    </p>
-                    <p>
-                        My current role as a Computer Lab Facilitator at Click Learning focuses on **managing IT assets**, providing **first-line technical support**, and promoting the effective integration of digital learning programs. I excel at maintaining optimal functionality of hardware and software through careful planning and robust security measures.
-                    </p>
-                    <p>
-                        Previously, my role as a Volunteer Administrator involved critical **office and financial administration** including record keeping, data capturing (SA-SAMS), compiling financial documents (cash books, journals), and ensuring compliance with procedures. I bring a combination of organizational, technical, and governance knowledge to any role.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. Skills Section -->
-        <section id="skills" class="py-16 sm:py-24 bg-gray-900">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 border-b-4 border-cyan-500/50 pb-2 inline-block mx-auto">Key Skills</h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                    <!-- Technical & IT Skills -->
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border border-gray-700 hover:border-cyan-500 transition duration-300">
-                        <h3 class="text-2xl font-semibold mb-4 text-cyan-400">IT & Digital Tools</h3>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> Basic IT Troubleshooting</li>
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> MS Office Suite (Excel proficiency)</li>
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> Digital Content Creation (Canva)</li>
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> Data Capturing (SA-SAMS)</li>
-                        </ul>
-                    </div>
-
-                    <!-- Administration & Finance Skills -->
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border border-gray-700 hover:border-cyan-500 transition duration-300">
-                        <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Administration & Finance</h3>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> Public Administration Principles (NQF 5)</li>
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> Record Keeping & Document Management</li>
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> Financial Documentation (Cash Books, Petty Cash)</li>
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> Policy Implementation & Enforcement</li>
-                        </ul>
-                    </div>
-
-                    <!-- Soft & Professional Skills -->
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border border-gray-700 hover:border-cyan-500 transition duration-300">
-                        <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Soft Skills</h3>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> Strong Communication Skills</li>
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> Teamwork & Collaboration</li>
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> Independent and Proactive Work Ethic</li>
-                            <li class="flex items-center"><span class="mr-2 text-cyan-500 font-bold">»</span> Organizational & Planning Skills</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. LLM Feature: Experience Tailor -->
-        <section id="tailor" class="py-16 sm:py-24 bg-gray-950">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 border-b-4 border-cyan-500/50 pb-2 inline-block mx-auto">✨ Tailor My Experience to a Role</h2>
-                <div class="bg-gray-900 p-8 rounded-xl shadow-2xl border border-gray-700">
-                    <p class="text-gray-400 mb-6 text-center">Paste a job description below, and I'll show you how my existing skills and experience (Computer Lab Facilitator & Administrator) align perfectly with the requirements of the job. This uses Gemini's powerful analysis capabilities.</p>
-                    
-                    <textarea id="jobDescription" rows="5" placeholder="Paste the Job Description here (e.g., 'Seeking an organized IT Assistant who can manage assets, provide technical support, and assist with financial record keeping...')" class="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-gray-100 focus:ring-cyan-500 focus:border-cyan-500 transition duration-300 mb-4"></textarea>
-
-                    <button onclick="tailorExperience()" id="tailorButton" class="w-full px-6 py-3 bg-cyan-600 text-white font-bold rounded-lg shadow-md hover:bg-cyan-500 transition duration-300 transform hover:scale-[1.01] flex items-center justify-center">
-                        <span id="tailorButtonText">✨ Analyze & Tailor Experience</span>
-                        <div id="tailorSpinner" class="hidden w-5 h-5 border-2 border-t-2 border-white border-opacity-30 rounded-full animate-spin ml-2"></div>
-                    </button>
-                    
-                    <div id="tailorOutput" class="mt-8 p-4 bg-gray-700 border border-cyan-800 rounded-xl text-gray-200 min-h-[100px] hidden whitespace-pre-wrap">
-                        <!-- AI output goes here -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. Experience Section (Moved down by one) -->
-        <section id="experience" class="py-16 sm:py-24 bg-gray-800">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 border-b-4 border-cyan-500/50 pb-2 inline-block mx-auto">Professional Experience</h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                    <!-- Experience Card 1 -->
-                    <div class="bg-gray-700 rounded-xl shadow-2xl overflow-hidden p-6 hover:scale-[1.01] transition duration-500 border border-gray-700 hover:border-cyan-500">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-1">Computer Lab Facilitator</h3>
-                        <p class="text-lg font-semibold text-gray-200 mb-2">Click Learning, Iphamiseng PS</p>
-                        <p class="text-sm text-gray-400 mb-4">April 2025 – PRESENT</p>
-                        <ul class="list-disc pl-5 space-y-2 text-gray-300 text-sm" id="exp1-list">
-                            <li>Managed and maintained computer lab assets, ensuring optimal hardware/software functionality, resource optimization, and security.</li>
-                            <li>Provided first-line technical support, troubleshooting and resolving technical issues promptly to ensure a seamless user experience.</li>
-                            <li>Planned and organized the lab environment strategically to maximize efficiency and create a conducive learning atmosphere.</li>
-                            <li>Collaborated with school staff to integrate digital interventions into the curriculum, ensuring consistent program use.</li>
-                            <li>Taught basic computer skills and promoted responsible technology use among users.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Experience Card 2 -->
-                    <div class="bg-gray-700 rounded-xl shadow-2xl overflow-hidden p-6 hover:scale-[1.01] transition duration-500 border border-gray-700 hover:border-cyan-500">
-                        <h3 class="text-xl font-bold text-cyan-400 mb-1">Volunteer Administrator</h3>
-                        <p class="text-lg font-semibold text-gray-200 mb-2">Duduza Primary School</p>
-                        <p class="text-sm text-gray-400 mb-4">September 2023</p>
-                        <ul class="list-disc pl-5 space-y-2 text-gray-300 text-sm" id="exp2-list">
-                            <li>Handled general administration, including record keeping, compiling leave forms, writing minutes, and email correspondence.</li>
-                            <li>Performed essential data capturing using the **SA-SAMS** system for school records.</li>
-                            <li>Assisted the finance officer with essential financial record keeping, compiling cash books, cash journals, and petty cash records using **Excel**.</li>
-                            <li>Responsible for compiling agendas and minutes for meetings.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Education Card -->
-                    <div class="md:col-span-2 bg-gray-900 p-6 rounded-xl shadow-2xl mt-4 border border-gray-700">
-                        <h3 class="text-2xl font-bold text-cyan-400 mb-3">Education & Training</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <p class="text-lg font-semibold text-gray-100">Public Management N4-N6 (NQF Level 5 Completion)</p>
-                                <p class="text-md text-gray-300">Sedibeng Tvet College | 2022 - 2023</p>
-                                <p class="text-sm text-gray-400 mt-1">Gained advanced understanding of governance, public sector financial planning, public law, and municipal administration.</p>
-                            </div>
-                            <div>
-                                <p class="text-lg font-semibold text-gray-100">Matric / Grade 12</p>
-                                <p class="text-md text-gray-300">N.N.Ndebele Senior Secondary School | 2014 - 2019</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. Contact Section (Moved down by one) -->
-        <section id="contact" class="py-16 sm:py-24 bg-gray-950">
-            <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 border-b-4 border-cyan-500/50 pb-2 inline-block mx-auto">Get In Touch</h2>
-
-                <div class="bg-gray-900 p-8 rounded-xl shadow-2xl border border-gray-700">
-                    <p class="text-lg text-gray-300 mb-6 text-center">
-                        I'm currently open to new opportunities. Connect with me directly below, or send a message!
-                    </p>
-
-                    <!-- Contact Details (Mobile number removed) -->
-                    <div class="flex flex-wrap justify-center gap-6 mb-8 text-center">
-                        <div class="flex flex-col items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail text-cyan-400 mb-1"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                            <span class="text-sm text-gray-400">Email:</span>
-                            <a href="mailto:siyabongahmdhluli1@gmail.com" class="text-gray-200 hover:text-cyan-400 text-sm">siyabongahmdhluli1@gmail.com</a>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin text-cyan-400 mb-1"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                            <span class="text-sm text-gray-400">LinkedIn:</span>
-                            <a href="https://www.linkedin.com/in/siyabonga-mdhluli-aba5062aa" target="_blank" class="text-gray-200 hover:text-cyan-400 text-sm">Siyabonga Mdhluli</a>
-                        </div>
-                    </div>
-
-                    <form onsubmit="event.preventDefault(); showMessage();" class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-400 mb-1">Name</label>
-                            <input type="text" id="name" name="name" required class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-100 focus:ring-cyan-500 focus:border-cyan-500 transition duration-300">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-400 mb-1">Email</label>
-                            <input type="email" id="email" name="email" required class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-100 focus:ring-cyan-500 focus:border-cyan-500 transition duration-300">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-400 mb-1">Message</label>
-                            <textarea id="message" name="message" rows="4" required class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-100 focus:ring-cyan-500 focus:border-cyan-500 transition duration-300"></textarea>
-                        </div>
-                        <button type="submit" class="w-full px-6 py-3 bg-cyan-600 text-white font-bold rounded-lg shadow-md hover:bg-cyan-500 transition duration-300 transform hover:scale-[1.01]">
-                            Send Message
-                        </button>
-                    </form>
-
-                    <!-- Custom Alert/Message Box -->
-                    <div id="messageBox" class="hidden mt-6 p-4 rounded-lg text-white bg-green-600">
-                        Thanks for your message! Siyabonga will get back to you as soon as possible.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 py-8 border-t border-gray-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="#" target="_blank" class="text-gray-400 hover:text-cyan-400 transition duration-300">
-                    <!-- GitHub Icon SVG Placeholder -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.37-.83-3.47 0 0-1.07-.33-3.53 1.06-.85-.22-1.8-.31-2.75-.31-1.05 0-2.01.09-2.75.31C7.3 3.84 6.23 4.17 6.23 4.17A4.8 4.8 0 0 0 5 8.5c0 3.5 3 5.5 6 5.5-.17.65-.24 1.25-.24 1.9V22"/></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/siyabonga-mdhluli-aba5062aa" target="_blank" class="text-gray-400 hover:text-cyan-400 transition duration-300">
-                    <!-- LinkedIn Icon SVG Placeholder -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-                <a href="mailto:siyabongahmdhluli1@gmail.com" class="text-gray-400 hover:text-cyan-400 transition duration-300">
-                    <!-- Mail Icon SVG Placeholder -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                </a>
-            </div>
-            <p class="text-gray-500 text-sm">
-                &copy; 2025 Siyabonga Mdhluli. Built with Tailwind CSS.
-            </p>
-        </div>
-    </footer>
-
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
-        import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-
-        // IMPORTANT: Use Debug logging for console visibility
-        setLogLevel('Debug');
-
-        // --- Firebase Globals ---
-        let db, auth, storage;
-        let userId = null;
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-
-        // --- User Interface Elements ---
-        const profileImageElement = document.getElementById('profileImage');
-        const uploadLabel = document.getElementById('uploadLabel');
-        const messageBox = document.getElementById('messageBox');
-
-
-        // Experience points extracted statically from the HTML for the LLM prompt
-        const siyabongaExperience = [
-            // Computer Lab Facilitator
-            "Managed and maintained computer lab assets, ensuring optimal hardware/software functionality, resource optimization, and security.",
-            "Provided first-line technical support, troubleshooting and resolving technical issues promptly to ensure a seamless user experience.",
-            "Planned and organized the lab environment strategically to maximize efficiency and create a conducive learning atmosphere.",
-            "Collaborated with school staff to integrate digital interventions into the curriculum, ensuring consistent program use.",
-            "Taught basic computer skills and promoted responsible technology use among users.",
-            // Volunteer Administrator
-            "Handled general administration, including record keeping, compiling leave forms, writing minutes, and email correspondence.",
-            "Performed essential data capturing using the SA-SAMS system for school records.",
-            "Assisted the finance officer with essential financial record keeping, compiling cash books, cash journals, and petty cash records using Excel.",
-            "Responsible for compiling agendas and minutes for meetings."
-        ];
-
-
-        /**
-         * Converts a File object to a data URL for immediate local preview.
-         * @param {File} file The image file selected by the user.
-         */
-        const previewImage = (file) => {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                profileImageElement.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        };
-
-        /**
-         * Handles the file upload to Firebase Storage and updates the profile data in Firestore.
-         * @param {Event} event The change event from the file input.
-         */
-        window.uploadProfilePicture = async (event) => {
-            const file = event.target.files[0];
-            if (!file || !userId) return;
-
-            // 1. Show loading/status message
-            messageBox.classList.remove('hidden', 'bg-green-600', 'bg-red-600');
-            messageBox.classList.add('bg-cyan-600');
-            messageBox.textContent = `Uploading "${file.name}"... Please wait.`;
-
-            try {
-                // 2. Local Preview
-                previewImage(file);
-
-                // 3. Define the storage path
-                // Path: /artifacts/{appId}/user_images/{userId}/profile.jpg
-                const storagePath = `artifacts/${appId}/user_images/${userId}/profile.jpg`;
-                const imageRef = ref(storage, storagePath);
-
-                // 4. Upload the file
-                const snapshot = await uploadBytes(imageRef, file);
-                const downloadURL = await getDownloadURL(snapshot.ref);
-
-                // 5. Update the user profile document in Firestore
-                // Path: /artifacts/{appId}/users/{userId}/profile/data
-                const profileDocRef = doc(db, `artifacts/${appId}/users/${userId}/profile`, 'data');
-                await setDoc(profileDocRef, {
-                    profileImageUrl: downloadURL,
-                    updatedAt: new Date().toISOString()
-                }, { merge: true });
-
-                // 6. Success message
-                messageBox.classList.remove('bg-cyan-600', 'bg-red-600');
-                messageBox.classList.add('bg-green-600');
-                messageBox.textContent = 'Profile picture updated successfully!';
-
-            } catch (error) {
-                console.error("Error during image upload:", error);
-                messageBox.classList.remove('bg-cyan-600', 'bg-green-600');
-                messageBox.classList.add('bg-red-600');
-                messageBox.textContent = 'Upload failed. Check console for details.';
-            } finally {
-                // Clear input to allow re-uploading the same file
-                event.target.value = '';
-                setTimeout(() => messageBox.classList.add('hidden'), 5000);
-            }
-        };
-
-        /**
-         * Sets up real-time listener for the user's profile data (to get the picture URL).
-         * @param {string} currentUserId The authenticated user ID.
-         */
-        const setupProfileListener = (currentUserId) => {
-            // Path: /artifacts/{appId}/users/{userId}/profile/data
-            const profileDocRef = doc(db, `artifacts/${appId}/users/${currentUserId}/profile`, 'data');
-
-            onSnapshot(profileDocRef, (docSnap) => {
-                if (docSnap.exists()) {
-                    const profileData = docSnap.data();
-                    if (profileData.profileImageUrl) {
-                        profileImageElement.src = profileData.profileImageUrl;
-                        console.log("Loaded profile image URL from Firestore.");
-                    }
-                } else {
-                    // Set default placeholder if no custom image is found
-                    profileImageElement.src = "https://placehold.co/128x128/06b6d4/ffffff?text=SM";
-                    console.log("No custom profile image found in Firestore. Using placeholder.");
-                }
-            }, (error) => {
-                console.error("Error listening to profile data:", error);
-            });
-        };
-
-        /**
-         * Initializes Firebase and handles user authentication.
-         */
-        const initFirebase = async () => {
-            try {
-                const app = initializeApp(firebaseConfig);
-                auth = getAuth(app);
-                db = getFirestore(app);
-                storage = getStorage(app);
-            } catch (error) {
-                console.error("Firebase initialization failed:", error);
-                return;
-            }
-
-            onAuthStateChanged(auth, async (user) => {
-                if (!user) {
-                    // Sign in if not authenticated
-                    try {
-                        if (typeof __initial_auth_token !== 'undefined') {
-                            await signInWithCustomToken(auth, __initial_auth_token);
-                        } else {
-                            await signInAnonymously(auth);
-                        }
-                    } catch (error) {
-                        console.error("Authentication failed:", error);
-                        // Fallback to anonymous UUID if sign-in completely fails
-                        userId = crypto.randomUUID();
-                    }
-                } else {
-                    userId = user.uid;
-                    console.log("User authenticated with UID:", userId);
-                    // Show the upload button now that the user is ready
-                    uploadLabel.classList.remove('hidden');
-
-                    // Start listening for their saved profile picture
-                    setupProfileListener(userId);
-                }
-            });
-        };
-
-        /**
-         * Fetches with exponential backoff for API robustness.
-         */
-        async function exponentialBackoffFetch(url, options, maxRetries = 5) {
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    const response = await fetch(url, options);
-                    if (response.ok) {
-                        return response;
-                    }
-                    // Throw an error if the response status is not OK (e.g., 4xx, 5xx)
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                } catch (error) {
-                    console.error(`Fetch attempt ${i + 1} failed:`, error.message);
-                    if (i === maxRetries - 1) {
-                        throw new Error('All fetch attempts failed.');
-                    }
-                    const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
-                    await new Promise(resolve => setTimeout(resolve, delay));
-                }
-            }
-        }
-        
-        /**
-         * Calls the Gemini API to tailor the user's experience points to a specific job description.
-         */
-        window.tailorExperience = async () => {
-            const jobDescription = document.getElementById('jobDescription').value.trim();
-            const outputElement = document.getElementById('tailorOutput');
-            const button = document.getElementById('tailorButton');
-            const buttonText = document.getElementById('tailorButtonText');
-            const spinner = document.getElementById('tailorSpinner');
-
-            if (!jobDescription) {
-                outputElement.classList.remove('hidden', 'bg-gray-700', 'text-gray-200');
-                outputElement.classList.add('bg-red-800', 'text-white');
-                outputElement.textContent = "Please paste a job description into the text area first.";
-                setTimeout(() => outputElement.classList.add('hidden'), 5000);
-                return;
-            }
-
-            // Set loading state
-            button.disabled = true;
-            buttonText.textContent = 'Analyzing...';
-            spinner.classList.remove('hidden');
-            outputElement.classList.remove('hidden', 'bg-red-800', 'bg-green-600');
-            outputElement.classList.add('bg-gray-700', 'text-gray-200');
-            outputElement.textContent = '🚀 Generating tailored experience points...';
-
-            try {
-                // Gemini API Setup
-                const apiKey = ""; 
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
-                // Construct the prompt for the LLM
-                const systemPrompt = `You are an expert career coach and resume writer. Your task is to take the candidate's existing experience and rephrase it to best align with the provided Job Description.
-                
-                Format your response clearly using markdown. Use bold text for key achievements.
-                
-                1. Title the response '🎯 Recommended Experience Alignment'.
-                2. For each of the candidate's core experience points, create a maximum of ONE to TWO revised bullet points that emphasize relevance to the job. If an existing point is not relevant, skip it.
-                3. Conclude with a brief summary of why the candidate is a strong fit.`;
-
-                const userQuery = `
-                Job Description to align with:
-                ---
-                ${jobDescription}
-                ---
-
-                Candidate's existing experience points (Rephrase these to match the job's needs):
-                ---
-                ${siyabongaExperience.map((point, index) => `${index + 1}. ${point}`).join('\n')}
-                ---
-                `;
-
-                const payload = {
-                    contents: [{ parts: [{ text: userQuery }] }],
-                    systemInstruction: { parts: [{ text: systemPrompt }] },
-                };
-
-                const response = await exponentialBackoffFetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                
-                const result = await response.json();
-                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
-
-                if (text) {
-                    outputElement.classList.remove('bg-gray-700');
-                    outputElement.classList.add('bg-gray-800', 'border-cyan-500');
-                    outputElement.textContent = text;
-                } else {
-                    throw new Error("Received an empty response from the AI.");
-                }
-
-            } catch (error) {
-                console.error("Gemini API call failed:", error);
-                outputElement.classList.remove('bg-gray-700');
-                outputElement.classList.add('bg-red-800', 'text-white');
-                outputElement.textContent = `Error: Failed to analyze the job description. Please ensure the job description is clearly formatted and try again. Technical Error: ${error.message}`;
-            } finally {
-                // Reset button state
-                button.disabled = false;
-                buttonText.textContent = '✨ Analyze & Tailor Experience';
-                spinner.classList.add('hidden');
-            }
-        };
-
-        // Initialize Firebase on window load
-        initFirebase();
-
-        // --- Original form submission function (kept for continuity) ---
-        window.showMessage = function () {
-            const nameInput = document.getElementById('name').value;
-            const emailInput = document.getElementById('email').value;
-            const messageInput = document.getElementById('message').value;
-
-            if (nameInput && emailInput && messageInput) {
-                const messageBox = document.getElementById('messageBox');
-                messageBox.classList.remove('hidden', 'bg-red-600');
-                messageBox.classList.add('bg-green-600');
-                messageBox.textContent = "Thanks for your message! Siyabonga will get back to you as soon as possible.";
-                
-                setTimeout(() => {
-                    document.querySelector('form').reset();
-                    setTimeout(() => {
-                        messageBox.classList.add('hidden');
-                    }, 5000); 
-                }, 500);
-            }
-        }
-    </script>
-</body>
-</html>
-
-
-
-
-
-
-
+                            <path d="M6 9a4 4 0 1 1 8 0 4 4 0 0 1-8 0z"/><path d="M12 21v-2c-2.31 0-3.86-.46-5-1.5-.72-.61-1.3-1.42-1.74-2.5C
