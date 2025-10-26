@@ -199,6 +199,171 @@
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-landmark text-cyan-500 mr-2 mt-1"><line x1="18" x2="6" y1="22" y2="22"/><path d="M10 14h4"/><path d="M12 19V7"/><path d="M10 5l4 0"/><path d="M12 19h8a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h8"/></svg> Public Administration Principles (NQF 5)</li>
                             <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-check text-cyan-500 mr-2 mt-1"><path d="M9 11 11 13 15 9"/><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 8.08 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg> Record Keeping & Document Management</li>
+                            <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calculator text-cyan-500 mr-2 mt-1"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="            list-style: none;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            margin-left: -1px;
+            background-color: #374151; /* gray-700 for the line */
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        /* General content box properties (50% width for all) */
+        .timeline-item .timeline-content {
+            width: 50%;
+            position: relative;
+        }
+
+        /* Odd items (Left side of the line) */
+        .timeline-item:nth-child(odd) .timeline-content {
+            float: left; 
+            padding-right: 30px;
+            text-align: right; /* Text aligns away from the center line */
+        }
+
+        /* Even items (Right side of the line) */
+        .timeline-item:nth-child(even) .timeline-content {
+            float: right; /* Positions the box to the right */
+            padding-left: 30px;
+            text-align: left; /* Text aligns away from the center line */
+        }
+        
+        .timeline-item .timeline-point {
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            margin-left: -7px;
+            background-color: #06b6d4; /* Cyan */
+            border: 2px solid #1f2937; /* gray-800 */
+            border-radius: 50%;
+            z-index: 10;
+        }
+        /* Clearfix for timeline items */
+        .timeline-item:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* Style adjustments for responsiveness */
+        @media (max-width: 768px) {
+            .timeline:before {
+                left: 10px;
+            }
+            .timeline-item .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-content {
+                width: 100%;
+                float: none;
+                padding-left: 40px;
+                padding-right: 0;
+                text-align: left;
+            }
+            .timeline-item .timeline-point {
+                left: 10px;
+                margin-left: -7px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased">
+
+    <header class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm shadow-xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-extrabold text-cyan-400 tracking-wider">SM.</a>
+            <div class="space-x-4 hidden sm:flex">
+                <a href="#about" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">Skills</a>
+                <a href="#experience" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">Experience</a>
+                <a href="#contact" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">Contact</a>
+            </div>
+            <button class="sm:hidden p-2 text-gray-300 hover:text-cyan-400 rounded-lg transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="py-20 sm:py-32 md:py-40 bg-gray-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
+                
+                <div class="md:text-left text-center md:max-w-3xl order-2 md:order-1">
+                    <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4">
+                        Hi, I'm <span class="text-cyan-400">Siyabonga Mdhluli</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-gray-400 max-w-3xl mb-8">
+                        An organized professional skilled in Computer Lab Facilitation, Basic IT Troubleshooting, and Public Administration.
+                    </p>
+
+                    <a href="Siyabonga_Mdhluli_CV.pdf" download="Siyabonga_Mdhluli_CV.pdf" class="inline-block px-10 py-3 bg-cyan-500 text-gray-900 font-bold rounded-full shadow-lg hover:bg-cyan-400 transition duration-300 transform hover:scale-105">
+                        Download CV
+                    </a>
+                </div>
+
+                <div class="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 order-1 md:order-2">
+                    <div class="w-full h-full rounded-full overflow-hidden border-4 border-cyan-500 shadow-xl">
+                        <img id="profileImage" src="profileImage.jpg" alt="Siyabonga Mdhluli Profile" class="w-full h-full object-cover">
+                    </div>
+
+                    <label for="imageUpload" id="uploadLabel" class="hidden absolute bottom-0 right-0 p-2 bg-cyan-600 rounded-full cursor-pointer hover:bg-cyan-500 transition duration-300" title="Change Profile Picture">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera text-white">
+                            <path d="M6 9a4 4 0 1 1 8 0 4 4 0 0 1-8 0z"/><path d="M12 21v-2c-2.31 0-3.86-.46-5-1.5-.72-.61-1.3-1.42-1.74-2.5C4.24 14.51 4 13.06 4 12c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.06-.24 2.51-.56 3.59-.44 1.08-1.02 1.89-1.74 2.5-1.14 1.04-2.69 1.5-5 1.5v2"/></svg>
+                        <input type="file" id="imageUpload" accept="image/*" class="hidden" onchange="uploadProfilePicture(event)">
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 sm:py-24 bg-gray-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 border-b-4 border-cyan-500/50 pb-2 inline-block mx-auto">About Me</h2>
+
+                <div class="flex flex-col items-start bg-gray-700 p-8 rounded-xl shadow-2xl">
+                    <div class="w-full space-y-6 text-lg text-gray-300">
+                        <p>
+                            I am a diligent and detail-oriented professional with a strong background in **Public Management (NQF Level 5)** and practical experience in educational and administrative environments.
+                        </p>
+                        <p>
+                            My current role as a **Computer Lab Facilitator** at Click Learning focuses on managing IT assets, providing first-line technical support, and promoting the effective integration of digital learning programs. I excel at maintaining optimal functionality of hardware and software through careful planning and robust security measures.
+                        </p>
+                        <p>
+                            Previously, my role as a **Volunteer Administrator** involved critical office and financial administration including record keeping, data capturing (SA-SAMS), compiling financial documents (cash books, journals), and ensuring compliance with procedures. I bring a combination of organizational, technical, and governance knowledge to any role.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 sm:py-24 bg-gray-900">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 border-b-4 border-cyan-500/50 pb-2 inline-block mx-auto">Key Skills</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border border-gray-700 hover:border-cyan-500 transition duration-300">
+                        <h3 class="text-2xl font-semibold mb-4 text-cyan-400">IT & Digital Tools</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor-check text-cyan-500 mr-2 mt-1"><path d="m9 10 2 2 4-4"/><rect width="20" height="15" x="2" y="3" rx="2"/><path d="M12 19v4"/><path d="M8 23h8"/></svg> Basic IT Troubleshooting</li>
+                            <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-check text-cyan-500 mr-2 mt-1"><path d="m9 10 2 2 4-4"/><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> MS Office Suite (Excel proficiency)</li>
+                            <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paintbrush text-cyan-500 mr-2 mt-1"><path d="M18.37 2.63a2.12 2.12 0 0 1 3 3L12 15l-4 4 1.5-1.5 8.75-8.75z"/><path d="m14 7-3-3"/><path d="M3 21l3-3"/></svg> Digital Content Creation (Canva)</li>
+                            <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database text-cyan-500 mr-2 mt-1"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg> Data Capturing (SA-SAMS)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-2xl border border-gray-700 hover:border-cyan-500 transition duration-300">
+                        <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Administration & Finance</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-landmark text-cyan-500 mr-2 mt-1"><line x1="18" x2="6" y1="22" y2="22"/><path d="M10 14h4"/><path d="M12 19V7"/><path d="M10 5l4 0"/><path d="M12 19h8a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h8"/></svg> Public Administration Principles (NQF 5)</li>
+                            <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-check text-cyan-500 mr-2 mt-1"><path d="M9 11 11 13 15 9"/><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 8.08 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg> Record Keeping & Document Management</li>
                             <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calculator text-cyan-500 mr-2 mt-1"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8"/><path d="M8 10h8"/><path d="M8 14h8"/><path d="M8 18h8"/></svg> Financial Documentation (Cash Books, Petty Cash)</li>
                             <li class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scroll text-cyan-500 mr-2 mt-1"><path d="M20 2v20H4V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/><path d="M10 6h4"/><path d="M8 10h8"/><path d="M8 14h8"/><path d="M12 18h0"/></svg> Policy Implementation & Enforcement</li>
                         </ul>
