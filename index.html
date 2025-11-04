@@ -1,4 +1,166 @@
-unded-full cursor-pointer hover:bg-cyan-500 transition duration-300" title="Change Profile Picture">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siyabonga Mdhluli | IT & Public Administration Professional</title>
+    <meta name="description" content="Organized IT & Public Administration professional skilled in Computer Lab Facilitation, technical support, financial record-keeping, and SA-SAMS data capturing.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght%40100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles and font application */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Style the scrollbar for aesthetics */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body::-webkit-scrollbar-track {
+            background: #111827; /* Dark background */
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #06b6d4; /* Cyan accent */
+            border-radius: 20px;
+            border: 2px solid #1f2937;
+        }
+        /* Style for the pre-wrap output for readability */
+        .whitespace-pre-wrap {
+            white-space: pre-wrap;
+        }
+
+        /* Timeline Custom Styles - FIXED */
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            margin-left: -1px;
+            background-color: #374151; /* gray-700 for the line */
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        /* General content box properties (50% width for all) */
+        .timeline-item .timeline-content {
+            width: 50%;
+            position: relative;
+        }
+
+        /* Odd items (Left side of the line) */
+        .timeline-item:nth-child(odd) .timeline-content {
+            float: left; 
+            padding-right: 30px;
+            text-align: right; /* Text aligns away from the center line */
+        }
+
+        /* Even items (Right side of the line) */
+        .timeline-item:nth-child(even) .timeline-content {
+            float: right; /* Positions the box to the right */
+            padding-left: 30px;
+            text-align: left; /* Text aligns away from the center line */
+        }
+        
+        .timeline-item .timeline-point {
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            margin-left: -7px;
+            background-color: #06b6d4; /* Cyan */
+            border: 2px solid #1f2937; /* gray-800 */
+            border-radius: 50%;
+            z-index: 10;
+        }
+        /* Clearfix for timeline items */
+        .timeline-item:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* Style adjustments for responsiveness */
+        @media (max-width: 768px) {
+            .timeline:before {
+                left: 10px;
+            }
+            .timeline-item .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-content {
+                width: 100%;
+                float: none;
+                padding-left: 40px;
+                padding-right: 0;
+                text-align: left;
+            }
+            .timeline-item .timeline-point {
+                left: 10px;
+                margin-left: -7px;
+            }
+        }
+        
+        /* NEW STYLES FOR TOGGLE FUNCTIONALITY */
+        .details-content {
+            transition: max-height 0.3s ease-in-out;
+            overflow: hidden;
+            max-height: 1000px; /* Default fully visible height */
+        }
+        .details-content.collapsed {
+            max-height: 80px; /* Height when collapsed (adjust this based on the height you want visible) */
+        }
+
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased">
+
+    <header class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm shadow-xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-extrabold text-cyan-400 tracking-wider">SM.</a>
+            <div class="space-x-4 hidden sm:flex">
+                <a href="#about" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">Skills</a>
+                <a href="#experience" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">Experience</a>
+                <a href="#contact" class="text-gray-300 hover:text-cyan-400 transition duration-300 px-3 py-2 rounded-lg">Contact</a>
+            </div>
+            <button class="sm:hidden p-2 text-gray-300 hover:text-cyan-400 rounded-lg transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="py-20 sm:py-32 md:py-40 bg-gray-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
+                
+                <div class="md:text-left text-center md:max-w-3xl order-2 md:order-1">
+                    <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4">
+                        Hi, I'm <span class="text-cyan-400">Siyabonga Mdhluli</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-gray-400 max-w-3xl mb-8">
+                        An organized professional skilled in Computer Lab Facilitation, Basic IT Troubleshooting, and Public Administration.
+                    </p>
+
+                    <a href="Siyabonga_Mdhluli_CV.pdf" download="Siyabonga_Mdhluli_CV.pdf" class="inline-block px-10 py-3 bg-cyan-500 text-gray-900 font-bold rounded-full shadow-lg hover:bg-cyan-400 transition duration-300 transform hover:scale-105">
+                        Download CV
+                    </a>
+                </div>
+
+                <div class="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 order-1 md:order-2">
+                    <div class="w-full h-full rounded-full overflow-hidden border-4 border-cyan-500 shadow-xl">
+                        <img id="profileImage" src="profileImage.jpg" alt="Siyabonga Mdhluli Profile" class="w-full h-full object-cover">
+                    </div>
+
+                    <label for="imageUpload" id="uploadLabel" class="hidden absolute bottom-0 right-0 p-2 bg-cyan-600 rounded-full cursor-pointer hover:bg-cyan-500 transition duration-300" title="Change Profile Picture">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera text-white">
                             <path d="M6 9a4 4 0 1 1 8 0 4 4 0 0 1-8 0z"/><path d="M12 21v-2c-2.31 0-3.86-.46-5-1.5-.72-.61-1.3-1.42-1.74-2.5C4.24 14.51 4 13.06 4 12c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.06-.24 2.51-.56 3.59-.44 1.08-1.02 1.89-1.74 2.5-1.14 1.04-2.69 1.5-5 1.5v2"/></svg>
                         <input type="file" id="imageUpload" accept="image/*" class="hidden" onchange="uploadProfilePicture(event)">
@@ -67,6 +229,39 @@ unded-full cursor-pointer hover:bg-cyan-500 transition duration-300" title="Chan
             </div>
         </section>
 
+        <section id="experience" class="py-16 sm:py-24 bg-gray-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 border-b-4 border-cyan-500/50 pb-2 inline-block mx-auto">Professional Experience & Education</h2>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content bg-gray-700 rounded-xl shadow-2xl overflow-hidden p-6 hover:scale-[1.01] transition duration-500 border border-gray-700 hover:border-cyan-500">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-1">Computer Lab Facilitator</h3>
+                            <p class="text-lg font-semibold text-gray-200 mb-2">Click Learning, Iphamiseng PS</p>
+                            <p class="text-sm text-gray-400 mb-4">April 2025 – PRESENT</p>
+                            
+                            <div class="details-content collapsed" id="exp1-details">
+                                <ul class="list-disc pl-5 space-y-2 text-gray-300 text-sm">
+                                    <li>Managed and maintained computer lab assets, ensuring optimal hardware/software functionality, resource optimization, and security.</li>
+                                    <li>Provided first-line technical support, troubleshooting and resolving technical issues promptly to ensure a seamless user experience.</li>
+                                    <li>Planned and organized the lab environment strategically to maximize efficiency and create a conducive learning atmosphere.</li>
+                                    <li>Collaborated with school staff to integrate digital interventions into the curriculum, ensuring consistent program use.</li>
+                                    <li>Taught basic computer skills and promoted responsible technology use among users.</li>
+                                </ul>
+                            </div>
+                            <button onclick="toggleDetails('exp1-details', this)" class="mt-4 text-cyan-400 hover:text-cyan-300 font-semibold text-sm">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content bg-gray-700 rounded-xl shadow-2xl overflow-hidden p-6 hover:scale-[1.01] transition duration-500 border border-gray-700 hover:border-cyan-500">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-1">Volunteer Administrator</h3>
+                            <p class
         <section id="experience" class="py-16 sm:py-24 bg-gray-800">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 border-b-4 border-cyan-500/50 pb-2 inline-block mx-auto">Professional Experience & Education</h2>
